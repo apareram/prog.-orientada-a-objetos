@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"FigurasGeometricas","l":"Cono"},{"p":"FigurasGeometricas","l":"Ffiguras"},{"p":"FigurasGeometricas","l":"PrismaRect"},{"p":"FigurasGeometricas","l":"PruebaFiguras"},{"p":"FigurasGeometricas","l":"Toroide"}];updateSearchResults();
