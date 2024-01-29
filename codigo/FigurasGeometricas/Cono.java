@@ -18,8 +18,14 @@ public class Cono extends Ffiguras{
     public double area(double radio, double altura, double hipo){
         double res = 0;
         double pi = 3.14159264;
-        res = pi*radio*(radio+hipo);
-        return res;
+        if(radio <= 0 || altura <= 0 || hipo <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = pi*radio*(radio+hipo);
+            return res;
+        }
     }
 
     /**
@@ -32,8 +38,14 @@ public class Cono extends Ffiguras{
     public double volumen(double radio, double altura, double hipo){
         double res = 0;
         double pi = 3.14159264;
-        res = (pi*(radio*radio)*altura)/3;
-        return res;
+        if(radio <= 0 || altura <= 0 || hipo <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = (pi*(radio*radio)*altura)/3;
+            return res;
+        }
     }
 
      /**
@@ -46,8 +58,14 @@ public class Cono extends Ffiguras{
     public double cuantosChicharos(double radio, double altura, double hipo){
         double res = 0;
         double volChicharo = 1.5;
-        res = volumen(radio, altura, hipo)/volChicharo;
-        return res;
+        if(radio <= 0 || altura <= 0 || hipo <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = volumen(radio, altura, hipo)/volChicharo;
+            return res;
+        }
     }
 
     /**

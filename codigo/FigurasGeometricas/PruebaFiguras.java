@@ -21,7 +21,12 @@ public class PruebaFiguras {
         System.out.println("Escriba el alto del prisma");
         alto = Double.valueOf(br.readLine()).doubleValue();
         System.out.println("la figura es de textura " + rect.gettextura() + ", de sabor " + rect.getsabor() + " y de color " + rect.getcolor());
-        System.out.println("el rectanguto tiene " + rect.area(ancho,largo,alto) + " cm^2 de area, tiene " + rect.volumen(ancho,largo,alto) + " cm^3 de volumen y le caben  " + rect.cuantosChicharos(ancho,largo,alto) + " chicharos");
+        if(rect.area(ancho,largo,alto) < 0){
+            System.out.println("el ancho, largo y alto tienen que ser valores mayores a cero.");
+        }
+        else{
+            System.out.println("el rectanguto tiene " + rect.area(ancho,largo,alto) + " cm^2 de area, tiene " + rect.volumen(ancho,largo,alto) + " cm^3 de volumen y le caben  " + rect.cuantosChicharos(ancho,largo,alto) + " chicharos");
+        }
 
         Cono cono = new Cono("rugoso", "amargo", "cafe");
         if (cono.tipo(cono) == 2) {
@@ -37,7 +42,12 @@ public class PruebaFiguras {
         System.out.println("Escriba la hipotenusa del cono");
         hipo = Double.valueOf(br.readLine()).doubleValue();
         System.out.println("el cono es de textura " + cono.gettextura() + ", de sabor " + cono.getsabor() + " y de color " + cono.getcolor());
-        System.out.println("el cono tiene " + cono.area(radio, altura, hipo) + " cm^2 de area, tiene " + cono.volumen(radio, altura, hipo) + " cm^3 de volumen y le caben  " + cono.cuantosChicharos(radio, altura, hipo) + " chicharos");
+        if(cono.area(radio, altura, hipo) < 0){
+            System.out.println("el radio, la altura y la hipotenusa tienen que ser valores mayores a cero.");
+        }
+        else{
+            System.out.println("el cono tiene " + cono.area(radio, altura, hipo) + " cm^2 de area, tiene " + cono.volumen(radio, altura, hipo) + " cm^3 de volumen y le caben  " + cono.cuantosChicharos(radio, altura, hipo) + " chicharos");
+        }
 
         Toroide toro = new Toroide("aspera", "agridulce", "rosa");
         if (toro.tipo(toro) == 3) {
@@ -50,6 +60,11 @@ public class PruebaFiguras {
         System.out.println("Escriba el radio menor del toroide");
         radioMen = Double.valueOf(br.readLine()).doubleValue();
         System.out.println("el toeroide es de textura " + toro.gettextura() + ", de sabor " + toro.getsabor() + " y de color " + toro.getcolor());
-        System.out.println("el toroide tiene " + toro.area(radioMay,radioMen) + " cm^2 de area, tiene " + toro.volumen(radioMay,radioMen) + " cm^3 de volumen y le caben  " + toro.cuantosChicharos(radioMay,radioMen) + " chicharos");
+        if(toro.area(radioMay,radioMen) < 0){
+            System.out.println("el radio mayor y menor tienen que ser valores mayores a cero.");
+        }
+        else{
+            System.out.println("el toroide tiene " + toro.area(radioMay,radioMen) + " cm^2 de area, tiene " + toro.volumen(radioMay,radioMen) + " cm^3 de volumen y le caben  " + toro.cuantosChicharos(radioMay,radioMen) + " chicharos");
+        }
     }
 }

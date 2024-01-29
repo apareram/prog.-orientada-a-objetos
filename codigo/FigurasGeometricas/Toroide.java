@@ -17,8 +17,14 @@ public class Toroide extends Ffiguras{
     public double area(double radioMay, double radioMen){
         double res = 0;
         double pi = 3.14159264;
-        res = 4*(pi*pi)*radioMay*radioMen;
-        return res;
+        if(radioMay <= 0 || radioMen <= 0 )
+        {
+            return -1;
+        }
+        else{
+            res = 4*pi*pi*radioMay*radioMen;
+            return res;
+        }
     }
     
     /**
@@ -30,8 +36,14 @@ public class Toroide extends Ffiguras{
     public double volumen(double radioMay, double radioMen){
         double res = 0;
         double pi = 3.14159264;
-        res = 2*(pi*pi)*radioMay*(radioMen*radioMen);
-        return res;
+        if(radioMay <= 0 || radioMen <= 0 )
+        {
+            return -1;
+        }
+        else{
+            res = 2*pi*pi*radioMay*radioMen*radioMen;
+            return res;
+        }
     }
 
     /**
@@ -43,8 +55,14 @@ public class Toroide extends Ffiguras{
     public double cuantosChicharos(double radioMay, double radioMen){
         double res = 0;
         double volChicharo = 1.5;
-        res = volumen(radioMay, radioMen)/volChicharo;
-        return res;
+        if(radioMay <= 0 || radioMen <= 0 )
+        {
+            return -1;
+        }
+        else{
+            res = volumen(radioMay, radioMen)/volChicharo;
+            return res;
+        }
     }
 
     /**

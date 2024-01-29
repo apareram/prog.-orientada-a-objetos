@@ -17,8 +17,14 @@ public class PrismaRect extends Ffiguras{
      */
     public double area(double ancho, double largo, double altura){
         double res = 0;
-        res = 2*(ancho*largo + ancho*altura + altura*largo);
-        return res;
+        if(ancho <= 0 || largo <= 0 || altura <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = 2*(ancho*largo + ancho*altura + altura*largo);
+            return res;
+        }
     }
     
     /**
@@ -30,8 +36,14 @@ public class PrismaRect extends Ffiguras{
      */
     public double volumen(double ancho, double largo, double altura){
         double res = 0;
-        res = ancho*largo*altura;
-        return res;
+        if(ancho <= 0 || largo <= 0 || altura <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = ancho*largo*altura;
+            return res;
+        }
     }
 
     /**
@@ -44,8 +56,14 @@ public class PrismaRect extends Ffiguras{
     public double cuantosChicharos(double ancho, double largo, double altura){
         double res = 0;
         double volChicharo = 1.5;
-        res = volumen(ancho, largo, altura)/volChicharo;
-        return res;
+        if(ancho <= 0 || largo <= 0 || altura <= 0)
+        {
+            return -1;
+        }
+        else{
+            res = volumen(ancho, largo, altura)/volChicharo;
+            return res;
+        }
     }
 
     /**
