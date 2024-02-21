@@ -1,8 +1,8 @@
 package Energias;
 import javax.swing.JOptionPane;
-
 public class PruebaEnergias {
     public static void main(String[] args) {
+
         String input1 = JOptionPane.showInputDialog("Ingrese el valor inicial de la velocidad:");
         double v0 = Double.parseDouble(input1);
 
@@ -26,17 +26,17 @@ public class PruebaEnergias {
 
         Energias energy = new Energias(masa);
 
-        for (double i = v0; i <= vF; i += intVel) {
-            energy.eCin(i);
-        }
+        double[] arrCinc = energy.arrCinc(v0, vF, intVel);
+        double[] arrPot = energy.arrPot(h0, hF, intAlt);
+        double eTotal = energy.eToto(arrCinc, arrPot);
 
-        for (double k = h0; k <= hF; k += intAlt) {
-            energy.ePot(k);
-        }
-
-        String mensaje = "Energía Cinética: " + energy.getECinc() +
-                         "\nEnergía Potencial: " + energy.getEPote() +
-                         "\nEnergía Total: " + energy.eToto();
+        energy.printArr(arrCinc);
+        energy.printArr(arrPot);
+        
+        String mensaje = "Energía Cinética: " + energy.sumaArr(arrCinc) +
+                         "\nEnergía Potencial: " + energy.sumaArr(arrPot) +
+                         "\nEnergía Total: " + eTotal;
         JOptionPane.showMessageDialog(null, mensaje);
+
     }
 }
