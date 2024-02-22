@@ -1,41 +1,58 @@
 package Energias;
 
+import javax.swing.JOptionPane;
+
 public class Energias {
     private double masa;
+    private double[] arrCinc;
+    private double[] arrPot;
+    private double eTotal;
 
     public Energias(double masa) {
         this.masa = masa;
     }
 
-    public double[] arrCinc(double v0, double vF, double intVel) {
+    private void calcularArrCinc(double v0, double vF, double intVel) {
         int tam = (int) ((vF - v0) / intVel) + 1;
-        double[] arrCinc = new double[tam];
+        arrCinc = new double[tam];
         int cont = 0;
 
         for (double i = v0; i <= vF; i += intVel) {
             arrCinc[cont] = 0.5 * masa * Math.pow(i, 2);
             cont += 1;
         }
-        return arrCinc;
     }
 
-    public double[] arrPot(double h0, double hF, double intAlt) {
+    private void calcularArrPot(double h0, double hF, double intAlt) {
         int tam = (int) ((hF - h0) / intAlt) + 1;
-        double[] arrPot = new double[tam];
+        arrPot = new double[tam];
         int cont = 0;
 
         for (double k = h0; k <= hF; k += intAlt) {
             arrPot[cont] = masa * k * 9.81;
             cont += 1;
         }
-        return arrPot;
     }
 
-    public double eToto(double[] arrCinc, double[] arrPot) {
-        return sumaArr(arrCinc) + sumaArr(arrPot);
+    public void calcularETotal(double v0, double vF, double intVel, double h0, double hF, double intAlt) {
+        calcularArrCinc(v0, vF, intVel);
+        calcularArrPot(h0, hF, intAlt);
+        eTotal = sumaArr(arrCinc) + sumaArr(arrPot);
     }
 
-    public double sumaArr(double[] arreglo) {
+    public double getEnergiaCineticaTotal() {
+        return sumaArr(arrCinc);
+    }
+
+    public double getEnergiaPotencialTotal() {
+        return sumaArr(arrPot);
+    }
+
+    public double getETotal() {
+        return eTotal;
+    }
+
+    private double sumaArr(double[] arreglo) {
         double suma = 0;
         for (int i = 0; i < arreglo.length; i++) {
             suma += arreglo[i];
@@ -43,9 +60,15 @@ public class Energias {
         return suma;
     }
 
-    public void printArr(double[] arreglo) {
-        for (int i = 0; i < arreglo.length; i++) {
-            System.out.println(arreglo[i]);
+    public void printArrCinc() {
+        for (int i = 0; i < arrCinc.length; i++) {
+            System.out.println(arrCinc[i]);
+        }
+    }
+
+    public void printArrPot() {
+        for (int i = 0; i < arrPot.length; i++) {
+            System.out.println(arrPot[i]);
         }
     }
 }
