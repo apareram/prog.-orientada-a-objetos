@@ -28,7 +28,9 @@ public class PruebaEnergias {
 
         energy.calcularETotal(v0, vF, intVel, h0, hF, intAlt);
 
+        System.out.println("Energía cinéticas: ");
         energy.printArrCinc();
+        System.out.println("Energía potencial: ");
         energy.printArrPot();
         
         String mensaje = "Energía Cinética Total: " + energy.getEnergiaCineticaTotal() +

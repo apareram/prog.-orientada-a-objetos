@@ -25,12 +25,15 @@ public class Energias {
 
     private void calcularArrPot(double h0, double hF, double intAlt) {
         int tam = (int) ((hF - h0) / intAlt) + 1;
-        arrPot = new double[tam];
+        arrPot = new double[tam + 1];
         int cont = 0;
 
         for (double k = h0; k <= hF; k += intAlt) {
             arrPot[cont] = masa * k * 9.81;
             cont += 1;
+            if(cont == tam){
+                arrPot[cont] = masa * hF * 9.81;
+            }
         }
     }
 
@@ -62,13 +65,13 @@ public class Energias {
 
     public void printArrCinc() {
         for (int i = 0; i < arrCinc.length; i++) {
-            System.out.println(arrCinc[i]);
+            System.out.println(i+1 + ". " + arrCinc[i]);
         }
     }
 
     public void printArrPot() {
         for (int i = 0; i < arrPot.length; i++) {
-            System.out.println(arrPot[i]);
+            System.out.println(i+1 + ". " + arrPot[i]);
         }
     }
 }
