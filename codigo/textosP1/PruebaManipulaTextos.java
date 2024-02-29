@@ -14,5 +14,12 @@ public class PruebaManipulaTextos {
         for (int i = 0; i < archivo.size(); i++) {
             System.out.println((i + 1) + ". " + archivo.get(i));
         }
+
+        ArrayList<String> archivoLimpio = leer.leerArchivo(ruta);
+        leer.limpiaTextos(archivoLimpio);
+        System.out.println("\nContenido del archivo de texto limpio: ");
+        for (int i = 0; i < archivoLimpio.size(); i++) {
+            System.out.println((i + 1) + ". " + archivoLimpio.get(i));
+        }
     }
 }

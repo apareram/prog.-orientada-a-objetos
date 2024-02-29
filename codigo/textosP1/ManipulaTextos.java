@@ -3,6 +3,7 @@ package textosP1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class ManipulaTextos {
@@ -29,5 +30,21 @@ public class ManipulaTextos {
         }
 
         return archTxt;
+    }
+
+    public ArrayList<String> limpiaTextos(ArrayList<String> txtSucio) {
+        for (int i = 0; i < txtSucio.size(); i++) {
+            String linea = txtSucio.get(i);
+            linea = linea.replaceAll("\\d", " ");
+            linea = linea.replaceAll("á", "a");
+            linea = linea.replaceAll("é", "e");
+            linea = linea.replaceAll("í", "i");
+            linea = linea.replaceAll("ó", "o");
+            linea = linea.replaceAll("ú", "u");
+            linea = linea.replaceAll("\\W", " ");
+            linea = linea.toLowerCase();
+            txtSucio.set(i, linea);
+        }
+        return txtSucio;
     }
 }
