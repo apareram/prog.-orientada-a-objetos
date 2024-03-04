@@ -47,4 +47,15 @@ public class ManipulaTextos {
         }
         return txtSucio;
     }
+
+    public String quitarPalabra(String frase, String palabra) {
+        return frase.replaceAll("\\b" + palabra + "\\b", "");
+    }
+
+    public String quitarPalabrasArchivo(ArrayList<String> palabras, String frase){
+        for (int i = 0; i < palabras.size(); i++) {
+            frase = frase.replaceAll("\\b" + palabras.get(i) + "\\b", "");
+        }
+        return frase;
+    }
 }
