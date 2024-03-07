@@ -58,4 +58,17 @@ public class ManipulaTextos {
         }
         return frase;
     }
+
+    public String quitarPCortas(String texto) {
+        String[] palabras = texto.split(" ");
+        String textoLimpio = "";
+    
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i].length() > 3) {
+                textoLimpio += palabras[i] + " ";
+            }
+        }
+    
+        return textoLimpio.trim();
+    }
 }

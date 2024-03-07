@@ -38,5 +38,10 @@ public class PruebaManipulaTextos {
         }
         frase2 = leer.quitarPalabrasArchivo(palabrasQuit, frase2);
         System.out.println("\nFrase modificada: " + frase2 + "\n");
+
+        String frase3 = "Hola a mis compañeros de programacion orientada a objetos";
+        System.out.println("\nFrase antes de quitar palabras cortas: " + frase3 + "\n");
+        frase3 = leer.quitarPCortas(frase3);
+        System.out.println("Frase después de quitar palabras cortas: " + frase3 + "\n");
     }
 }
