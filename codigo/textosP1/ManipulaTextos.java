@@ -32,20 +32,23 @@ public class ManipulaTextos {
         return archTxt;
     }
 
-    public ArrayList<String> limpiaTextos(ArrayList<String> txtSucio) {
-        for (int i = 0; i < txtSucio.size(); i++) {
-            String linea = txtSucio.get(i);
-            linea = linea.replaceAll("\\d", " ");
-            linea = linea.replaceAll("á", "a");
-            linea = linea.replaceAll("é", "e");
-            linea = linea.replaceAll("í", "i");
-            linea = linea.replaceAll("ó", "o");
-            linea = linea.replaceAll("ú", "u");
-            linea = linea.replaceAll("\\W", " ");
-            linea = linea.toLowerCase();
-            txtSucio.set(i, linea);
-        }
-        return txtSucio;
+    public ArrayList<String> limpiaTextos(ArrayList<String> textoSucio) {
+        ArrayList<String> textoLimpio = new ArrayList<>();
+    	for(String elemento : textoSucio) {
+    		//Quita dígitos
+    		String linea = elemento.replaceAll("\\d", " ");
+    		//Quita caracteres
+    		linea = linea.replaceAll("á", "a");
+    		linea = linea.replaceAll("é", "e");
+    		linea = linea.replaceAll("í", "i");
+    		linea = linea.replaceAll("ó", "o");
+    		linea = linea.replaceAll("ú", "u");
+    		linea = linea.replaceAll("\\W", " ");
+    		//Todo a minusculas
+    		linea = linea.toLowerCase();
+    		textoLimpio.add(linea);
+    	}
+		return textoLimpio;
     }
 
     public String quitarPalabra(String frase, String palabra) {
@@ -62,13 +65,40 @@ public class ManipulaTextos {
     public String quitarPCortas(String texto) {
         String[] palabras = texto.split(" ");
         String textoLimpio = "";
-    
         for (int i = 0; i < palabras.length; i++) {
             if (palabras[i].length() > 3) {
                 textoLimpio += palabras[i] + " ";
             }
         }
-    
         return textoLimpio.trim();
+    }
+
+    public ArrayList<String> quitarPCortasArrayList(ArrayList<String> texto) {
+        ArrayList<String> textoLimpio = new ArrayList<>();
+        for (int i = 0; i < texto.size(); i++) {
+            String linea = texto.get(i);
+            String[] palabras = linea.split(" ");
+            String lineaLimpia = "";
+            for (int j = 0; j < palabras.length; j++) {
+                if (palabras[j].length() > 3) {
+                    lineaLimpia += palabras[j] + " ";
+                }
+            }
+            textoLimpio.add(lineaLimpia.trim());
+        }
+        return textoLimpio;
+    }
+
+    public ArrayList<String> quitarPalabrasArchivoAL(ArrayList<String> aQuitar, ArrayList<String> frases) {
+    	ArrayList<String> hold = new ArrayList<String>();
+    	String mientras = null;
+    	for(int i = 0; i < frases.size(); i++) {
+			mientras = frases.get(i);
+    		for(int j = 0; j < aQuitar.size(); j++) {
+            	mientras = mientras.replaceAll("\\b" + aQuitar.get(j) + "\\b", "");
+    		}
+    		hold.add(mientras);
+    	}
+    	return hold;
     }
 }
