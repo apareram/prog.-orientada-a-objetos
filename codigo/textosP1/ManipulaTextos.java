@@ -3,7 +3,6 @@ package textosP1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class ManipulaTextos {
@@ -35,7 +34,7 @@ public class ManipulaTextos {
     public ArrayList<String> limpiaTextos(ArrayList<String> textoSucio) {
         ArrayList<String> textoLimpio = new ArrayList<>();
     	for(String elemento : textoSucio) {
-    		//Quita dígitos
+    		//Quita dígito
     		String linea = elemento.replaceAll("\\d", " ");
     		//Quita caracteres
     		linea = linea.replaceAll("á", "a");
@@ -51,6 +50,12 @@ public class ManipulaTextos {
 		return textoLimpio;
     }
 
+    public void imprimirArrayList(ArrayList<String> texto) {
+        for (int i = 0; i < texto.size(); i++) {
+            System.out.println(texto.get(i));
+        }
+    }
+
     public String quitarPalabra(String frase, String palabra) {
         return frase.replaceAll("\\b" + palabra + "\\b", "");
     }
@@ -60,6 +65,19 @@ public class ManipulaTextos {
             frase = frase.replaceAll("\\b" + palabras.get(i) + "\\b", "");
         }
         return frase;
+    }
+
+    public ArrayList<String> quitarPalabrasArchivoAL(ArrayList<String> aQuitar, ArrayList<String> frases) {
+    	ArrayList<String> hold = new ArrayList<String>();
+    	String mientras = null;
+    	for(int i = 0; i < frases.size(); i++) {
+			mientras = frases.get(i);
+    		for(int j = 0; j < aQuitar.size(); j++) {
+            	mientras = mientras.replaceAll("\\b" + aQuitar.get(j) + "\\b", "");
+    		}
+    		hold.add(mientras);
+    	}
+    	return hold;
     }
 
     public String quitarPCortas(String texto) {
@@ -87,18 +105,5 @@ public class ManipulaTextos {
             textoLimpio.add(lineaLimpia.trim());
         }
         return textoLimpio;
-    }
-
-    public ArrayList<String> quitarPalabrasArchivoAL(ArrayList<String> aQuitar, ArrayList<String> frases) {
-    	ArrayList<String> hold = new ArrayList<String>();
-    	String mientras = null;
-    	for(int i = 0; i < frases.size(); i++) {
-			mientras = frases.get(i);
-    		for(int j = 0; j < aQuitar.size(); j++) {
-            	mientras = mientras.replaceAll("\\b" + aQuitar.get(j) + "\\b", "");
-    		}
-    		hold.add(mientras);
-    	}
-    	return hold;
     }
 }

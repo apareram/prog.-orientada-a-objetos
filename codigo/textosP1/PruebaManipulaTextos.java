@@ -63,8 +63,6 @@ public class PruebaManipulaTextos {
         textoPrueba = prueba.quitarPCortasArrayList(textoPrueba);
         // se imprime el texto final limpio
         System.out.println("\nContenido del archivo de texto limpio: ");
-        for (int i = 0; i < textoPrueba.size(); i++) {
-            System.out.println((i + 1) + ". " + textoPrueba.get(i));
-        }
+        prueba.imprimirArrayList(textoPrueba);
     }
 }
