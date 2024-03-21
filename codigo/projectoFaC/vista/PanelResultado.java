@@ -8,12 +8,16 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class PanelResultado extends JPanel {
+    public JLabel e2;
+    public JLabel e1;
+
+
     public PanelResultado() {
         this.setLayout(new GridLayout(2, 1));
         // agregando las labels
-        JLabel e1 = new JLabel("La temperatura en Fahrenheit es:", SwingConstants.CENTER);
+        e1 = new JLabel("La temperatura en Fahrenheit es:", SwingConstants.CENTER);
         this.add(e1);
-        JLabel e2 = new JLabel("Aquí la temperatura", SwingConstants.CENTER);
+        e2 = new JLabel("Aquí la temperatura", SwingConstants.CENTER);
         this.add(e2);
     }
 }

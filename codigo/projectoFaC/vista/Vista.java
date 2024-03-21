@@ -4,6 +4,9 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 public class Vista extends JFrame{
+    public PanelIngresa panelIng;
+    public PanelResultado panelRes;
+
     public Vista (){
         // layout
         setLayout(new GridLayout(2,1));
@@ -12,9 +15,9 @@ public class Vista extends JFrame{
         setLocation(250, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        PanelIngresa panel1 =  new PanelIngresa();
-        this.add(panel1);
-        PanelResultado panel2 =  new PanelResultado();
-        this.add(panel2);
+        panelIng =  new PanelIngresa();
+        this.add(panelIng);
+        panelRes =  new PanelResultado();
+        this.add(panelRes);
     }
 }
