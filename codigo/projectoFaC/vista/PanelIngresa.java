@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class PanelIngresa extends JPanel {
-    public JButton boton = new JButton("Convertir");
+    public JButton boton;
     public JTextField txtField;
     public JLabel e1;
     public JLabel e2;
