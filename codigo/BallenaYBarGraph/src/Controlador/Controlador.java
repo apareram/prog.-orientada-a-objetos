@@ -4,9 +4,8 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.mfg.exgraf.Vista;
-
 import Modelo.Modelo;
+import Vista.Vista;
 
 public class Controlador implements ActionListener {
     private Modelo modelo;

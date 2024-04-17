@@ -1,4 +1,4 @@
-package com.mfg.exgraf;
+package Vista;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,9 +7,6 @@ import javax.swing.JFrame;
 
 import com.mfg.exgraf.BarChart_AWT;
 import com.mfg.nu.aislada.JPanelDemo;
-
-import Vista.PanelBotones;
-import Vista.PanelRutas;
 
 public class Vista extends JFrame{
 	public BarChart_AWT panel1;

@@ -1,11 +1,10 @@
-package com.mfg.exgraf;
+package Main;
 
 import java.io.IOException;
 
-import com.mfg.exgraf.Vista;
-
 import Controlador.Controlador;
 import Modelo.Modelo;
+import Vista.Vista;
 
 public class Main {
 
